@@ -96,6 +96,42 @@ function handleClick(playerSelection) {
     }
   }
 
+  function updateScore() {
+    if (roundWinner === 'tie') {
+      scoreInfo.textContent = "It's a tie!"
+    } else if (roundWinner === 'player') {
+      scoreInfo.textContent = 'You won!'
+    } else if (roundWinner === 'computer') {
+      scoreInfo.textContent = 'You lost!'
+    }
+  
+    playerScorePara.textContent = `Player: ${playerScore}`
+    computerScorePara.textContent = `Computer: ${computerScore}`
+  }
+
+  function updateScoreMessage(winner, playerSelection, computerSelection) {
+    if (winner === 'player') {
+      scoreMessage.textContent = `${capitalizeFirstLetter(
+        playerSelection
+      )} beats ${computerSelection.toLowerCase()}`
+      return
+    }
+    if (winner === 'computer') {
+      scoreMessage.textContent = `${capitalizeFirstLetter(
+        playerSelection
+      )} is beaten by ${computerSelection.toLowerCase()}`
+      return
+    }
+  
+    scoreMessage.textContent = `${capitalizeFirstLetter(
+      playerSelection
+    )} ties with ${computerSelection.toLowerCase()}`
+  }
+  
+  function capitalizeFirstLetter(string) {
+    return string.charAt(0).toUpperCase() + string.slice(1).toLowerCase()
+  }
+
   function openEndgameModal() {
     endgameModal.classList.add('active')
     overlay.classList.add('active')
