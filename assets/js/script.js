@@ -16,5 +16,36 @@ const endgameMsg = document.getElementById('endgameMsg')
 const overlay = document.getElementById('overlay')
 const restartBtn = document.getElementById('restartBtn')
 
+rockBtn.addEventListener('click', () => handleClick('ROCK'))
+paperBtn.addEventListener('click', () => handleClick('PAPER'))
+scissorsBtn.addEventListener('click', () => handleClick('SCISSORS'))
+restartBtn.addEventListener('click', restartGame)
+overlay.addEventListener('click', closeEndgameModal)
+
+function getComputerChoice(){
+    const choices = ["ROCK", "PAPER", "SCISSORS"];
+    const randomIndex = Math.floor(Math.random() * choices.length);
+    return choices[randomIndex];
+}
+
+function playRound(playerSelection, computerSelection){
+    if (playerSelection === computerSelection) {
+        console.log('It\'s a tie!');
+    }
+    
+    else if (
+        (playerSelection === 'rock' && computerSelection === 'scissors') ||
+        (playerSelection === 'scissors' && computerSelection === 'paper') ||
+        (playerSelection === 'paper' && computerSelection === 'rock')
+    ) {
+        playerScore++ 
+        roundWinner = 'player'
+
+    } else {
+          computerScore++
+          roundWinner = 'computer'
+    }
+
+}
 
 
