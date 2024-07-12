@@ -48,4 +48,41 @@ function playRound(playerSelection, computerSelection){
 
 }
 
+function isGameOver() {
+    return playerScore === 5 || computerScore === 5
+  }
+  
+
+function handleClick(playerSelection) {
+    if (isGameOver()) {
+      openEndgameModal()
+      return
+    }
+  
+    const computerSelection = getRandomChoice()
+    playRound(playerSelection, computerSelection)
+    updateChoices(playerSelection, computerSelection)
+    updateScore()
+  
+    if (isGameOver()) {
+      openEndgameModal()
+      setFinalMessage()
+    }
+  }
+
+  function openEndgameModal() {
+    endgameModal.classList.add('active')
+    overlay.classList.add('active')
+  }
+
+  function setFinalMessage() {
+    return playerScore > computerScore
+      ? (endgameMsg.textContent = 'You won!')
+      : (endgameMsg.textContent = 'You lost...')
+  }
+
+  function closeEndgameModal() {
+    endgameModal.classList.remove('active')
+    overlay.classList.remove('active')
+  }
 
