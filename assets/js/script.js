@@ -34,9 +34,9 @@ function playRound(playerSelection, computerSelection){
     }
     
     else if (
-        (playerSelection === 'rock' && computerSelection === 'scissors') ||
-        (playerSelection === 'scissors' && computerSelection === 'paper') ||
-        (playerSelection === 'paper' && computerSelection === 'rock')
+        (playerSelection === 'ROCK' && computerSelection === 'SCISSORS') ||
+        (playerSelection === 'SCISSORS' && computerSelection === 'PAPER') ||
+        (playerSelection === 'PAPER' && computerSelection === 'ROCK')
     ) {
         playerScore++ 
         roundWinner = 'player'
@@ -59,7 +59,7 @@ function handleClick(playerSelection) {
       return
     }
   
-    const computerSelection = getRandomChoice()
+    const computerSelection = getComputerChoice()
     playRound(playerSelection, computerSelection)
     updateChoices(playerSelection, computerSelection)
     updateScore()
@@ -147,4 +147,18 @@ function handleClick(playerSelection) {
     endgameModal.classList.remove('active')
     overlay.classList.remove('active')
   }
+
+function restartGame() {
+    playerScore = 0
+    computerScore = 0
+    scoreInfo.textContent = 'Choose your weapon'
+    scoreMessage.textContent = 'First to score 5 points wins the game'
+    playerScorePara.textContent = 'Player: 0'
+    computerScorePara.textContent = 'Computer: 0'
+    playerSign.textContent = '❔'
+    computerSign.textContent = '❔'
+    endgameModal.classList.remove('active')
+    overlay.classList.remove('active')
+  }
+
 
