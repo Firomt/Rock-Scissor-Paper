@@ -3,50 +3,47 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Rock Paper Scissors</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Roboto:wght@400;700&display=swap"
-      rel="stylesheet"
-    />
-    <link rel="shortcut icon" href="favicon.ico" />
-    <script
-      src="https://kit.fontawesome.com/4c536a6bd5.js"
-      crossorigin="anonymous"
-    ></script>
+    <title>Rock Paper Scissors</title> 
+    <link rel="shortcut icon" href="assets/images/peace.png" type="image/png" />
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Nosifer&display=swap" rel="stylesheet">
+
+    <script src="https://kit.fontawesome.com/4c536a6bd5.js" crossorigin="anonymous"></script>
 </head>
 <body>
-   <header class="header">
-      <h1 class="title">ROCK PAPER SCISSORS</h1>
-    </header>
+  <header class="header">
+    <h1 class="title">ROCK PAPER SCISSORS</h1>
+  </header>
 
     <main class="main">
       <div class="scoreboard">
-        <h2 class="score-info" id="scoreInfo">Choose your weapon</h2>
+        <h2 class="score-info" id="scoreInfo">Choose to Start</h2>
         <h3 class="score-message" id="scoreMessage">
-          First to score 5 points wins the game
+          Score 5 points first to Win!
         </h3>
         <div class="scores-container">
           <div class="score-box">
-            <div class="sign" id="playerSign">❔</div>
+            <img id="playerSign" class="sign" src="assets/images/qmark.png">
+           
             <p class="score" id="playerScore">Player: 0</p>
           </div>
           <div class="score-box">
-            <div class="sign" id="computerSign">❔</div>
+            <img id="computerSign" class="sign" src="assets/images/qmark.png">
+            
             <p class="score" id="computerScore">Computer: 0</p>
           </div>
         </div>
       </div>
+      <h2 class="choose" id="choose">Choose: </h2>
       <div class="buttons">
         <button class="btn btn-square" id="rockBtn">
-          <div class="sign">✊</div>
+          <img src="assets/images/rock.png" class="rock">
         </button>
         <button class="btn btn-square" id="paperBtn">
-          <div class="sign">🖐</div>
+          <img src="assets/images/paper.png">
         </button>
         <button class="btn btn-square" id="scissorsBtn">
-          <div class="sign">✌️</div>
+          <img src="assets/images/scissors.png">
         </button>
       </div>
     </main>
