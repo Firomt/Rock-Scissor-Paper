@@ -1,3 +1,5 @@
+
+
 let playerScore = 0
 let computerScore = 0
 let roundWinner = ''
@@ -30,7 +32,7 @@ function getComputerChoice(){
 
 function playRound(playerSelection, computerSelection){
     if (playerSelection === computerSelection) {
-        console.log('It\'s a tie!');
+        roundWinner = "tie";
     }
     
     else if (
@@ -45,6 +47,7 @@ function playRound(playerSelection, computerSelection){
           computerScore++
           roundWinner = 'computer'
     }
+    updateScoreMessage(roundWinner, playerSelection, computerSelection)
 
 }
 
@@ -73,26 +76,32 @@ function handleClick(playerSelection) {
   function updateChoices(playerSelection, computerSelection) {
     switch (playerSelection) {
       case 'ROCK':
-        playerSign.textContent = '✊'
-        break
+        playerSign.src = 'assets/images/rock.png';
+        playerSign.alt = 'Rock';
+        break;
       case 'PAPER':
-        playerSign.textContent = '🖐'
-        break
+        playerSign.src = 'assets/images/paper.png';
+        playerSign.alt = 'Paper';
+        break;
       case 'SCISSORS':
-        playerSign.textContent = '✌'
-        break
+        playerSign.src = 'assets/images/scissors.png'; 
+        playerSign.alt = 'Scissors';
+        break;
     }
   
     switch (computerSelection) {
       case 'ROCK':
-        computerSign.textContent = '✊'
-        break
+        computerSign.src = 'assets/images/rock.png';
+        computerSign.alt = 'Rock';
+        break;
       case 'PAPER':
-        computerSign.textContent = '🖐'
-        break
+        computerSign.src = 'assets/images/paper.png'; 
+        computerSign.alt = 'Paper';
+        break;
       case 'SCISSORS':
-        computerSign.textContent = '✌'
-        break
+        computerSign.src = 'assets/images/scissors.png'; 
+        computerSign.alt = 'Scissors';
+        break;
     }
   }
 
@@ -138,10 +147,15 @@ function handleClick(playerSelection) {
   }
 
   function setFinalMessage() {
-    return playerScore > computerScore
-      ? (endgameMsg.textContent = 'You won!')
-      : (endgameMsg.textContent = 'You lost...')
+    if (playerScore > computerScore) {
+      endgameMsg.textContent = 'You won!';
+      endgameMsg.classList.add('win'); // Add 'win' class for green color
+    } else {
+      endgameMsg.textContent = 'You lost...';
+      endgameMsg.classList.remove('win'); // Remove 'win' class for red color
+    }
   }
+  
 
   function closeEndgameModal() {
     endgameModal.classList.remove('active')
@@ -155,8 +169,8 @@ function restartGame() {
     scoreMessage.textContent = 'First to score 5 points wins the game'
     playerScorePara.textContent = 'Player: 0'
     computerScorePara.textContent = 'Computer: 0'
-    playerSign.textContent = '❔'
-    computerSign.textContent = '❔'
+    playerSign.src = "assets/images/qmark.png"
+    computerSign.src= "assets/images/qmark.png"
     endgameModal.classList.remove('active')
     overlay.classList.remove('active')
   }
