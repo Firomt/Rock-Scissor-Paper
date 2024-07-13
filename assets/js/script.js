@@ -155,6 +155,7 @@ function handleClick(playerSelection) {
       endgameMsg.classList.remove('win'); // Remove 'win' class for red color
     }
   }
+
   
 
   function closeEndgameModal() {
@@ -165,8 +166,8 @@ function handleClick(playerSelection) {
 function restartGame() {
     playerScore = 0
     computerScore = 0
-    scoreInfo.textContent = 'Choose your weapon'
-    scoreMessage.textContent = 'First to score 5 points wins the game'
+    scoreInfo.textContent = 'Choose to Start'
+    scoreMessage.textContent = 'Score 5 points first to Win!'
     playerScorePara.textContent = 'Player: 0'
     computerScorePara.textContent = 'Computer: 0'
     playerSign.src = "assets/images/qmark.png"
